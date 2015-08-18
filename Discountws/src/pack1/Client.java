@@ -1,0 +1,27 @@
+package pack1;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import javax.xml.namespace.QName;
+import javax.xml.ws.Service;
+
+public class Client {
+public static void main(String args[]) {
+	
+		URL url;
+		try {
+			url = new URL("http://localhost:1502/pack1/greet");
+			QName qname = new QName("http://pack1/","HelloWorldImplService");
+			Service service = Service.create(url, qname);
+			HelloWorld world = service.getPort(HelloWorld.class);
+			System.out.println(world.calculate(500));
+		
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+	
+}
+}

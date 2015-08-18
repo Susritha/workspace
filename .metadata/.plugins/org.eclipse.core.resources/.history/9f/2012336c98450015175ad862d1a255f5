@@ -1,0 +1,10 @@
+package pack1;
+
+public class Snippet {
+	HelloWorldImplService service = new HelloWorldImplService();
+		HelloWorld world = service.getHelloWorldImplPort();
+		System.out.println(world.sayHello("susritha"));
+		System.out.println(world.add(20,20));
+	}
+}
+
