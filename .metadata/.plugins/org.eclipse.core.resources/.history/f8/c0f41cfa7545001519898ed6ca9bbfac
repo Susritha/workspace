@@ -1,0 +1,11 @@
+package pack1;
+
+public class HelloWorldImpl implements HelloWorld {
+
+	@Override
+	public String greetings(String name) {
+	
+		return "hello "+name;
+	}
+
+}

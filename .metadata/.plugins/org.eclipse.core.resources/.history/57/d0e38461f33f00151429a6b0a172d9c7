@@ -1,0 +1,77 @@
+package Jdbcpack;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class EmployeeDAOImpl implements EmployeeDAO {
+  private Connection conn;
+  private PreparedStatement pst;
+  private ResultSet rs;
+  
+  
+	@Override
+	public void getDBConnection() {
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			try {
+				Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","scott","tiger");
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		} catch (ClassNotFoundException e) {
+			
+			e.printStackTrace();
+		}
+		
+
+	}
+
+	@Override
+	public void closeConn() {
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+
+	}
+
+	@Override
+	public void addEmployee(Employee employee) {
+		getDBConnection();
+		String query = "insert into employee values(?,?,?)";
+		try {
+			conn.prepareStatement(query);
+			pst.setInt(1, employee.getEmpcode());
+			pst.setString(2, employee.getEname());
+			pst.setDouble(3, employee.getSalary());
+			pst.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+
+	}
+
+	@Override
+	public List<Employee> getEmployees() {
+		getDBConnection();
+		Employee emp;
+		List<Employee> empls = new ArrayList<Employee>();
+		pst=conn.prepareStatement("select * from employee");
+		rs=pst.executeQuery();
+		
+		return null;
+	}
+
+}

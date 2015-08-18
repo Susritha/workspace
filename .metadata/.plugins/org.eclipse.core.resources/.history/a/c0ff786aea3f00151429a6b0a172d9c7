@@ -1,0 +1,23 @@
+package Jdbcpack;
+
+public class AddEmployee implements EmployeeDAO {
+
+	@Override
+	public void getDBConnection() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void closeConn() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void addEmployee(Employee employee) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,11 @@
+package beans;
+
+public class Ceat implements Wheels {
+
+	@Override
+	public void rotating() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

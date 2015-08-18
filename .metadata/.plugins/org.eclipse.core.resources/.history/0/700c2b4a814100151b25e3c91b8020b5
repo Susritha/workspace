@@ -1,0 +1,7 @@
+
+@Controller
+public class HelloController {
+public void sendMessage(){
+	return "Success";
+}
+}

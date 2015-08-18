@@ -1,0 +1,17 @@
+package beans;
+
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.core.io.ClassPathResource;
+
+public class ClientApp {
+
+	public static void main(String[] args) {
+		BeanFactory factory = new XmlBeanFactory(new ClassPathResource("beans/Spring.xml"));
+		Employee employee = (Employee) factory.getBean("emp");
+  employee.setCode(111);
+  employee.setName("susritha");
+  System.out.println(employee.getCode()+""+employee.getName());
+	}
+
+}
