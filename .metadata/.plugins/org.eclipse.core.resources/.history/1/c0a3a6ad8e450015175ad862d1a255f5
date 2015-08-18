@@ -1,0 +1,7 @@
+package org.tempuri;
+
+public class DotClientAppln {
+public static void main(String args[]){
+	
+}
+}
